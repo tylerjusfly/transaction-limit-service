@@ -58,5 +58,5 @@ Example:
 npm install
 
 # Start dev server
-npm run dev
+npm run start:dev
 ```
