@@ -6,12 +6,54 @@ The Transaction Limit Service enforces regulatory, tier-based, and user-defined 
 
 It integrates with the KYC Service (to enforce tier-based restrictions), User Service (to store personal settings), and Transaction/Payments Service (to validate transactions before execution).
 
+## 🔗 Integration Points
+This document describes how other services in the ecosystem integrate with it.  
 
-## 🚀 Service Requirements
-- Language/Framework: (Node.js / Python / Java / .NET / PHP / Go)
-- Database: (PostgreSQL, Redis, etc.)
-- Messaging: (Kafka, RabbitMQ, gRPC, REST)
-- Other Dependencies: (External APIs, bill aggregators, payment gateways)
+### 1. 👤 User Service
+- Provides **user details** such as:
+  - User ID
+  - User Tier (e.g., Basic, Premium, Business)
+- This information is required to determine applicable transaction limits.  
+
+---
+
+### 2. ✅ KYC Service
+- Determines **tier-based limits** based on KYC verification.  
+- Works with the Transaction Limit Service to enforce regulatory thresholds.  
+
+---
+
+### 3. 💳 Transaction Service
+- Calls the **Transaction Limit Service** before processing:
+  - Deposits  
+  - Withdrawals  
+  - Transfers  
+- Ensures that all debit/credit operations comply with defined limits.  
+
+---
+
+### 4. 📱 Airtime & Bill Service and Transfer Service
+- Must **validate against the Transaction Limit Service** before executing payments.  
+- Example use cases:
+  - Airtime top-ups  
+  - Utility/bill payments  
+  - Peer-to-peer transfers  
+
+---
+
+### 5. 📢 Notification Service
+- Alerts the user whenever:
+  - A transaction limit has been reached  
+  - A transaction is blocked due to exceeding a limit  
+- Provides a feedback loop for user awareness and compliance.  
+
+## 📜 Summary
+
+- **All financial transactions must pass through the Transaction Limit Service**.  
+- **User & KYC data** determine the applicable limits.  
+- **Payments and transfers** are blocked if they exceed defined thresholds.  
+- **Notifications** ensure users are aware of limits and restrictions.  
+
 
 ## 🛠️ High-level Documentation
 - Handles central identity and profile management business logic
