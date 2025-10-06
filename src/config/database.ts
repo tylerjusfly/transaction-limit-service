@@ -1,5 +1,9 @@
 import mongoose from 'mongoose';
 import { logger } from '../utils/logger';
+// Import models to ensure they're registered with Mongoose
+import '../models/transactionRule.model';
+import '../models/transactionUsage.model';
+
 const connectionString = process.env.MONGODB_URI;
 
 if (!connectionString) {
