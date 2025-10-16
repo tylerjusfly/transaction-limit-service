@@ -49,7 +49,7 @@ module.exports = tseslint.config(
     },
     rules: {
       // Prettier integration
-      'prettier/prettier': 'error',
+      'prettier/prettier': 'off',
 
       // TypeScript rules
       '@typescript-eslint/no-explicit-any': 'warn',

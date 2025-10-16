@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import mongoose, { Schema, Document, Model } from 'mongoose';
 import { Period, TransactionType } from './transactionRule.model';
 

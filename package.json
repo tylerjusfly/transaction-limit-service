@@ -4,22 +4,21 @@
   "description": "The Transaction Limit Service enforces regulatory, tier-based, and user-defined rules on financial transactions. It defines how much a user can deposit, withdraw, transfer, or spend on specific services (e.g., airtime, bill payments) within a given timeframe.",
   "main": "index.js",
   "scripts": {
-  "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-  "start": "tsc && node dist/server.js",
-  "build": "tsc",
-  "lint": "eslint .",
-  "lint:fix": "eslint . --fix",
-  "prettier": "prettier \"**/*.+(ts|js|json)\"",
-  "format": "npm run prettier -- --write",
-  "check:format": "npm run prettier -- --check",
-  "check-types": "tsc --noEmit",
-  "validate": "npm run check:format && npm run lint && npm run build",
-  "prepare": "husky",
-  "test": "jest"
-},
- "lint-staged": {
+    "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "start": "tsc && node dist/server.js",
+    "build": "tsc",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier \"**/*.+(ts|js|json)\"",
+    "format": "npm run prettier -- --write",
+    "check:format": "npm run prettier -- --check",
+    "check-types": "tsc --noEmit",
+    "validate": "npm run check:format && npm run lint && npm run build",
+    "prepare": "husky",
+    "test": "jest"
+  },
+  "lint-staged": {
     "**/*.{js,ts,json}": [
-      "prettier --write",
       "eslint --fix"
     ]
   },

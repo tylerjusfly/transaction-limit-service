@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-
 import mongoose, { Schema, Document, Model } from 'mongoose';
 
 export const TRANSACTION_TYPES = ['transfer', 'airtime_purchase', 'bill_payment', 'withdrawal', 'deposit'] as const;
